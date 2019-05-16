@@ -1,22 +1,17 @@
 <template>
-  <div>
-    <VmTable title="人员管理"
-             type="edit"
-             :columns="dataColumns"
-             :data="dataTable"
-             v-on:add-ok="add"
-             v-on:edit-ok="edit"
-             v-on:delete-ok="deletefn"
-             class="vm-margin">
-    </VmTable>
-    <Upload action="//jsonplaceholder.typicode.com/posts/">
-      <Button icon="ios-cloud-upload-outline">Upload files</Button>
-    </Upload>
-  </div>
+  <VmTable title="人员管理" 
+           type="edit" 
+           :columns="dataColumns" 
+           :data="dataTable"
+           v-on:add-ok="add"
+           v-on:edit-ok="edit"
+           v-on:delete-ok="deletefn"
+           class="vm-margin">
+  </VmTable>
 </template>
 
 <script>
-  import VmTable from '@/components/vm-table-upload'
+  import VmTable from '@/components/vm-table'
   export default {
     name: 'EditableTable',
     components: {
@@ -54,33 +49,33 @@
             title: '人脸ID',
             key: 'faceId'
           },
-          // {   title: '人脸',
-          //     key: 'facePicUrl',
-          //               width: 220,
-          //               render:(h,params) => {
-          //                   return h('div',[
-          //                       h('img',{
-          //                           style:{
-          //                               'margin-top':'10px',
-          //                               'margin-bottom':'10px',
-          //                               'border-radius':'4px',
-          //                               width:'80px',
-          //                               height:'50px',
-          //                               cursor: 'pointer',
-          //                           },
-          //                           attrs:{
-          //                               'src': '',
-          //                               onerror:'this.src="https://goss.veer.com/creative/vcg/veer/800water/veer-133632476.jpg"'
-          //                           },
-          //                           on:{
-          //                               click:(e)=>{
-          //                                   this.handleView(e.srcElement.currentSrc)
-          //                               }
-          //                           }
-          //                       }),
-          //                   ]
-          //               )}
-          //           },
+          {   title: '人脸', 
+              key: 'facePicUrl',
+                        width: 220,
+                        render:(h,params) => {
+                            return h('div',[
+                                h('img',{
+                                    style:{
+                                        'margin-top':'10px',
+                                        'margin-bottom':'10px',
+                                        'border-radius':'4px',
+                                        width:'80px',
+                                        height:'50px',
+                                        cursor: 'pointer',
+                                    },
+                                    attrs:{
+                                        'src': '',
+                                        onerror:'this.src="https://goss.veer.com/creative/vcg/veer/800water/veer-133632476.jpg"'
+                                    },
+                                    on:{
+                                        click:(e)=>{
+                                            this.handleView(e.srcElement.currentSrc)
+                                        }
+                                    }
+                                }),
+                            ]
+                        )}
+                    },
           {
             id: '20156542',
             title: '名称',
